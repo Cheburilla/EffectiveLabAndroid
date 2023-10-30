@@ -1,7 +1,5 @@
-import android.widget.Toast
-import androidx.compose.foundation.layout.PaddingValues
+
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -31,9 +29,9 @@ fun DotaScreen() {
             }
 
             item {
-                ScrollableChipsRow()
+                //ScrollableChipsRow()
                 Text(
-                    text = stringResource(id = "Dota 2 is a multiplayer online battle arena (MOBA) game..."),
+                    text = stringResource(R.string.Dota_2_is),
                     style = AppTheme.TextStyle.Regular_12_19,
                     color = AppTheme.TextColors.secondary,
                     modifier = Modifier.padding(
@@ -46,17 +44,17 @@ fun DotaScreen() {
             }
 
             item {
-                VideoPreviewRow(
+                /*VideoPreviewRow(
                     previewResList = listOf(
                         R.drawable.bg_video_preview1,
                         R.drawable.bg_video_preview2,
                     ),
                     contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
-                )
+                )*/
             }
 
             item {
-                PrimaryOvalButton(
+                /*PrimaryOvalButton(
                     text = stringResource(id = "Install"),
                     onClick = {
                         Toast.makeText(context, "CLICKED", Toast.LENGTH_LONG).show()
@@ -69,7 +67,7 @@ fun DotaScreen() {
                             top = 20.dp,
                             bottom = 40.dp,
                         )
-                )
+                )*/
             }
         }
     }
