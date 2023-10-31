@@ -15,7 +15,8 @@ object AppTheme {
     object BgColors {
 
         val primary: Color
-            get() = Color.Black
+            get() = Color.Blue
+                //Color(0xFF050B18)
     }
 
     object ButtonColors {
@@ -23,27 +24,42 @@ object AppTheme {
     }
 
     object TextColors {
+        val primary: Color
+            get() = Color.White
 
         val secondary: Color
-            get() {
-                TODO()
-            }
+            get() = Color.Black
     }
 
     object TextStyle {
-        val Regular_12_19: androidx.compose.ui.text.TextStyle
+        val Regular_12_19
+            @Composable
             get() =
                 TextStyle(
                     fontFamily = FontFamily,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 48.sp,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 12.sp,
+                    lineHeight = 19.sp,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                     lineHeightStyle = LineHeightStyle(
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
                 )
-        val Bold_48: androidx.compose.ui.text.TextStyle
+        val Bold_20
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = FontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                )
+        val Bold_48
             @Composable
             get() =
                 TextStyle(
