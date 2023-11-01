@@ -7,19 +7,42 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.dota.ui.CommentUi
+import com.example.dota.R
+import com.example.dota.ui.User
+import com.example.dota.ui.commentUi
 import com.example.dota.ui.theme.AppTheme
+
+val comments = listOf(
+    commentUi(
+        message = "Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.",
+        user = User(
+            avatar = R.drawable.avatar_1,
+            name = "Auguste Conte",
+        ),
+        date = "February 14, 2019",
+    ),
+    commentUi(
+        message = "Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.",
+        user = User(
+            avatar = R.drawable.avatar_2,
+            name = "Jang Marcelino",
+        ),
+        date = "February 14, 2019",
+    )
+)
 
 @Composable
 fun CommentBlock(
-    commentUi: CommentUi,
+    commentUi: commentUi,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {
@@ -34,17 +57,42 @@ fun CommentBlock(
                     contentScale = ContentScale.Crop,
                 )
             }
-            Column(){
+            Column(modifier = Modifier.padding(start = 16.dp)) {
                 Text(
-                    text = "\"${commentUi.message}\"",
-                    style = AppTheme.TextStyle.Regular_12_20,
-                    color = AppTheme.TextColors.message,
+                    text = "\"${commentUi.user.name}\"",
+                    style = AppTheme.TextStyle.Regular_16_20,
+                    color = AppTheme.TextColors.primary,
                     modifier = Modifier.padding(
                         top = 16.dp,
-                        bottom = 12.dp
+                        bottom = 7.dp
                     )
+                )
+                Text(
+                    text = "\"${commentUi.date}\"",
+                    style = AppTheme.TextStyle.Regular_12_20,
+                    color = AppTheme.TextColors.message,
                 )
             }
         }
+        Text(
+            text = "\"${commentUi.message}\"",
+            style = AppTheme.TextStyle.Regular_12_20,
+            color = AppTheme.TextColors.message,
+            modifier = Modifier.padding(
+                top = 16.dp,
+                bottom = 12.dp
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+fun CommentBlockPreview(
+) {
+    Surface(
+        color = AppTheme.BgColors.primary,
+    ) {
+        CommentBlock(commentUi = comments[0])
     }
 }
