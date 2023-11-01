@@ -1,0 +1,114 @@
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.dotamobile.R
+import com.example.dotamobile.ui.theme.AppTheme
+
+@Composable
+fun DotaScreenHeader(
+    modifier: Modifier = Modifier,
+) {
+
+    HeaderBackground(
+        painter = painterResource(R.drawable.bg_header),
+        modifier = modifier.fillMaxWidth()
+    ) {
+
+    }
+}
+
+@Composable
+private fun HeaderBackground(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Box(modifier = modifier) {
+        Image(
+            painter = painter,
+            contentDescription = "Header background",
+            alignment = Alignment.TopCenter,
+            modifier = modifier,
+            contentScale = ContentScale.Crop,
+        )
+        Row(
+            modifier = Modifier
+                .padding(start = 24.dp, top = 325.dp)
+                .height(95.dp),
+        ) {
+            DotaLogo(modifier = Modifier)
+            Column(modifier = Modifier.padding(start = 12.dp, top = 34.dp)) {
+                Text(
+                    text = stringResource(R.string.app_name),
+                    style = AppTheme.TextStyle.Bold_20,
+                    color = AppTheme.TextColors.primary,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun DotaLogo(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .size(88.dp)
+            .clip(RoundedCornerShape(12.dp))
+            .background(color = Color.DarkGray)
+    ) {
+        Box(
+            modifier = modifier
+                .size(84.dp)
+                .clip(RoundedCornerShape(12.dp))
+                .background(color = Color.Black)
+                .align(Alignment.Center)
+        ) {
+            Box(modifier = modifier.align(Alignment.Center)) {
+                Image(
+                    painter = painterResource(R.drawable.dota_logo),
+                    contentDescription = "Dota logo",
+                    contentScale = ContentScale.FillBounds,
+                    modifier = Modifier.size(54.dp)
+                )
+            }
+        }
+    }
+
+}
+
+@Preview
+@Composable
+fun DotaScreenHeaderPreview() {
+    Surface(
+        color = AppTheme.BgColors.primary,
+    ) {
+        DotaScreenHeader()
+    }
+}
+
+@Preview
+@Composable
+fun DotaLogoPreview() {
+    DotaLogo()
+}
