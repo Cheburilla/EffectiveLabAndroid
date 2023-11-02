@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.dota.R
+import com.example.dota.components.RatingBar
 import com.example.dota.ui.theme.AppTheme
 
 @Composable
@@ -47,6 +49,18 @@ fun DotaScreenHeader(
                     style = AppTheme.TextStyle.Bold_20,
                     color = AppTheme.TextColors.primary,
                 )
+                Row (modifier = Modifier.padding(top = 6.dp)) {
+                    RatingBar(
+                        currentRating = 5.0f,
+                        modifier = Modifier.height(14.dp).width(76.dp),
+                    )
+                    Text(
+                        text = "70M",
+                        style = AppTheme.TextStyle.Regular_12,
+                        color = AppTheme.TextColors.primary_transparent,
+                        modifier = Modifier.padding(start = 10.dp)
+                    )
+                }
             }
         }
         }
@@ -63,7 +77,9 @@ private fun HeaderBackground(
         Image(
                 painter = painter,
                 contentDescription = "Header background",
-                modifier = Modifier.fillMaxWidth().height(294.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(294.dp),
                 contentScale = ContentScale.Crop,
             )
         content()
