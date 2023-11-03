@@ -15,4 +15,4 @@
 
 __Демо доступно ниже__
 
-![App](https://psv4.userapi.com/c909228/u262725592/docs/d21/9787470d4035/Screen_recording_20231103_082722.gif)
+https://psv4.userapi.com/c909228/u262725592/docs/d21/9787470d4035/Screen_recording_20231103_082722.gif
