@@ -13,6 +13,4 @@
 - блок комментариев,
 - кнопка установить с hover-эффектом.
 
-__Демо доступно ниже__
-
-https://psv4.userapi.com/c909228/u262725592/docs/d21/9787470d4035/Screen_recording_20231103_082722.gif
+[Демо](https://drive.google.com/file/d/1wZxDTmNScKmEKqc6-8KDlqaV5bMTxUmM/view?usp=sharing)
