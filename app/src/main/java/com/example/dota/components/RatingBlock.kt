@@ -23,12 +23,12 @@ fun RatingBlock(
             style = AppTheme.TextStyle.Bold_48,
             color = AppTheme.TextColors.primary,
         )
-        Column(modifier = Modifier
-            .padding(
-                top = 17.dp,
-                bottom = 7.dp,
-                start = 16.dp,
-            )
+        Column(
+            modifier = Modifier.padding(
+                    top = 17.dp,
+                    bottom = 7.dp,
+                    start = 16.dp,
+                )
         ) {
             RatingBar(
                 currentRating = rating,

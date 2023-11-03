@@ -17,20 +17,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.dota.R
+import com.example.dota.ui.CommentUi
 import com.example.dota.ui.User
-import com.example.dota.ui.commentUi
 import com.example.dota.ui.theme.AppTheme
 
 val comments = listOf(
-    commentUi(
+    CommentUi(
         message = "Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.",
         user = User(
             avatar = R.drawable.avatar_1,
             name = "Auguste Conte",
         ),
         date = "February 14, 2019",
-    ),
-    commentUi(
+    ), CommentUi(
         message = "Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.",
         user = User(
             avatar = R.drawable.avatar_2,
@@ -42,14 +41,15 @@ val comments = listOf(
 
 @Composable
 fun CommentBlock(
-    commentUi: commentUi,
+    commentUi: CommentUi,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {
         Row {
-            Box(modifier = Modifier
-                .clip(CircleShape)
-                .size(36.dp)
+            Box(
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .size(36.dp)
             ) {
                 Image(
                     painter = painterResource(commentUi.user.avatar),
@@ -59,18 +59,14 @@ fun CommentBlock(
             }
             Column(modifier = Modifier.padding(start = 16.dp)) {
                 Text(
-                    text = "\"${commentUi.user.name}\"",
-                    style = AppTheme.TextStyle.Regular_16_20,
+                    text = commentUi.user.name,
+                    style = AppTheme.TextStyle.Regular_16,
                     color = AppTheme.TextColors.primary,
-                    modifier = Modifier.padding(
-                        top = 16.dp,
-                        bottom = 7.dp
-                    )
                 )
                 Text(
-                    text = "\"${commentUi.date}\"",
-                    style = AppTheme.TextStyle.Regular_12_20,
-                    color = AppTheme.TextColors.message,
+                    text = commentUi.date,
+                    style = AppTheme.TextStyle.Regular_12_19,
+                    color = AppTheme.TextColors.primary_transparent,
                 )
             }
         }
@@ -80,7 +76,6 @@ fun CommentBlock(
             color = AppTheme.TextColors.message,
             modifier = Modifier.padding(
                 top = 16.dp,
-                bottom = 12.dp
             )
         )
     }

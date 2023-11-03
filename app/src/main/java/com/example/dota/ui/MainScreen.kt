@@ -14,8 +14,7 @@ fun MainScreen() {
         Surface(
             color = AppTheme.BgColors.primary,
             modifier = Modifier.fillMaxSize(),
-        )
-        {
+        ) {
             DotaScreen()
         }
     }

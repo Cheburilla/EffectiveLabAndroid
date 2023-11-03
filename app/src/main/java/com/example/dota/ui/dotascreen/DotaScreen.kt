@@ -21,6 +21,7 @@ import com.example.dota.R
 import com.example.dota.components.CommentBlock
 import com.example.dota.components.PrimaryOvalButton
 import com.example.dota.components.RatingBlock
+import com.example.dota.components.ScrollableChipsRow
 import com.example.dota.components.VideoPreviewRow
 import com.example.dota.components.comments
 import com.example.dota.ui.theme.AppTheme
@@ -40,7 +41,11 @@ fun DotaScreen() {
         }
 
         item {
-            //com.example.dota.components.ScrollableChipsRow()
+            ScrollableChipsRow(
+                items = listOf("MOBA", "MULTIPLAYER", "STRATEGY"),
+                modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
+                contentPadding = PaddingValues(start = 24.dp, end = 24.dp),
+            )
             Text(
                 text = stringResource(R.string.Dota_2_is),
                 style = AppTheme.TextStyle.Regular_12_19,
@@ -59,8 +64,7 @@ fun DotaScreen() {
                 previewResList = listOf(
                     R.drawable.bg_video_preview1,
                     R.drawable.bg_video_preview2,
-                ),
-                contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
+                ), contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
             )
         }
 
@@ -77,9 +81,7 @@ fun DotaScreen() {
                 )
             )
             RatingBlock(
-                rating = 4.9f,
-                reviewsCount = "70M",
-                modifier = Modifier.padding(
+                rating = 4.9f, reviewsCount = "70M", modifier = Modifier.padding(
                     start = 24.dp,
                     end = 24.dp,
                     bottom = 16.dp,
@@ -89,9 +91,7 @@ fun DotaScreen() {
 
         itemsIndexed(comments) { index, item ->
             CommentBlock(
-                item,
-                modifier = Modifier
-                    .padding(
+                item, modifier = Modifier.padding(
                         start = 24.dp,
                         end = 24.dp,
                         bottom = 16.dp,
@@ -103,7 +103,7 @@ fun DotaScreen() {
                     thickness = 1.dp,
                     modifier = Modifier.padding(
                         top = 12.dp,
-                        bottom = 10.dp,
+                        bottom = 24.dp,
                         start = 38.dp,
                         end = 38.dp,
                     ),
@@ -113,11 +113,9 @@ fun DotaScreen() {
 
         item {
             PrimaryOvalButton(
-                text = stringResource(R.string.install),
-                onClick = {
+                text = stringResource(R.string.install), onClick = {
                     Toast.makeText(context, "CLICKED", Toast.LENGTH_LONG).show()
-                },
-                modifier = Modifier
+                }, modifier = Modifier
                     .fillMaxWidth()
                     .padding(
                         start = 24.dp,

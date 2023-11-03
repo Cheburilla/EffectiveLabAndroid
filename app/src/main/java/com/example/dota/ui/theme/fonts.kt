@@ -6,6 +6,12 @@ import com.example.dota.R
 
 internal val FontFamily = FontFamily(
     Font(R.font.sk_modernist_regular_font),
-    Font(R.font.sk_modernist_mono_font, weight = androidx.compose.ui.text.font.FontWeight.Companion.Medium),
-    Font(R.font.sk_modernist_bold_font, weight = androidx.compose.ui.text.font.FontWeight.Companion.Bold),
+    Font(
+        R.font.sk_modernist_mono_font,
+        weight = androidx.compose.ui.text.font.FontWeight.Companion.Medium
+    ),
+    Font(
+        R.font.sk_modernist_bold_font,
+        weight = androidx.compose.ui.text.font.FontWeight.Companion.Bold
+    ),
 )

@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -34,35 +33,35 @@ fun DotaScreenHeader(
 ) {
 
     HeaderBackground(
-        painter = painterResource(R.drawable.bg_header),
-        modifier = modifier
+        painter = painterResource(R.drawable.bg_header), modifier = modifier
     ) {
         Box(
-            modifier = Modifier
-                .padding(start = 24.dp, top = 274.dp)
+            modifier = Modifier.padding(start = 24.dp, top = 274.dp)
         ) {
-            Row{
-            DotaLogo(modifier = Modifier)
-            Column(modifier = Modifier.padding(start = 12.dp, top = 34.dp)) {
-                Text(
-                    text = stringResource(R.string.app_name),
-                    style = AppTheme.TextStyle.Bold_20,
-                    color = AppTheme.TextColors.primary,
-                )
-                Row (modifier = Modifier.padding(top = 6.dp)) {
-                    RatingBar(
-                        currentRating = 5.0f,
-                        modifier = Modifier.height(14.dp).width(76.dp),
-                    )
+            Row {
+                DotaLogo(modifier = Modifier)
+                Column(modifier = Modifier.padding(start = 12.dp, top = 34.dp)) {
                     Text(
-                        text = "70M",
-                        style = AppTheme.TextStyle.Regular_12,
-                        color = AppTheme.TextColors.primary_transparent,
-                        modifier = Modifier.padding(start = 10.dp)
+                        text = stringResource(R.string.app_name),
+                        style = AppTheme.TextStyle.Bold_20,
+                        color = AppTheme.TextColors.primary,
                     )
+                    Row(modifier = Modifier.padding(top = 6.dp)) {
+                        RatingBar(
+                            currentRating = 5.0f,
+                            modifier = Modifier
+                                .height(14.dp)
+                                .width(76.dp),
+                        )
+                        Text(
+                            text = "70M",
+                            style = AppTheme.TextStyle.Regular_12,
+                            color = AppTheme.TextColors.primary_transparent,
+                            modifier = Modifier.padding(start = 10.dp)
+                        )
+                    }
                 }
             }
-        }
         }
     }
 }
@@ -75,13 +74,13 @@ private fun HeaderBackground(
 ) {
     Box(modifier = modifier) {
         Image(
-                painter = painter,
-                contentDescription = "Header background",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(294.dp),
-                contentScale = ContentScale.Crop,
-            )
+            painter = painter,
+            contentDescription = "Header background",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(294.dp),
+            contentScale = ContentScale.Crop,
+        )
         content()
     }
 }
@@ -92,13 +91,13 @@ private fun DotaLogo(modifier: Modifier = Modifier) {
         modifier = modifier
             .size(88.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(color = Color.DarkGray)
+            .background(color = AppTheme.BgColors.logo_border)
     ) {
         Box(
             modifier = modifier
                 .size(84.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(color = Color.Black)
+                .background(color = AppTheme.BgColors.logo_bg)
                 .align(Alignment.Center)
         ) {
             Box(modifier = modifier.align(Alignment.Center)) {
